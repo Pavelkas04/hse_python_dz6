@@ -3,13 +3,6 @@ from urllib.parse import quote
 
 BASE_URL = "http://google-gruyere.appspot.com/354272086260015487277051777527730239931"
 
-XSS_PAYLOADS = [
-    '',
-    '<img src=x onerror=alert(1)>',
-    '"><svg onload=alert(1)>',
-    "<b>bold_xss_marker</b>",
-]
-
 found_count = 0
 
 for target in [BASE_URL + "/{payload}", BASE_URL + "/snippets.gtl?uid={payload}"]:
